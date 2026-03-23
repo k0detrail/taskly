@@ -69,7 +69,9 @@
         </DropdownMenu.Item>
         <DropdownMenu.Item>
           <LogoutIcon />
-          Log out
+          <form method="POST" action="/logout" class="w-full">
+            <button type="submit" class="w-full text-left"> Log out </button>
+          </form>
         </DropdownMenu.Item>
       </DropdownMenu.Content>
     </DropdownMenu.Root>
