@@ -4,6 +4,8 @@
   import SiteHeader from "$lib/components/site-header.svelte";
   import Table from "./table.svelte";
   import Sheet from "./sheet.svelte";
+  import UpcomingTasks from "$lib/components/upcoming-tasks.svelte";
+  import DashboardTaskChart from "$lib/components/charts/dashboard-task-chart.svelte";
 
   let { data } = $props();
 </script>
@@ -17,6 +19,10 @@
     <div class="flex flex-1 flex-col">
       <div class="@container/main p-4">
         <Sheet />
+        <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <UpcomingTasks tasks={data.tasks} />
+          <DashboardTaskChart tasks={data.tasks} />
+        </div>
         <Table tasks={data.tasks} />
       </div>
     </div>
