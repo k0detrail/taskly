@@ -9,7 +9,7 @@
     FieldDescription,
   } from "$lib/components/ui/field/index.js";
 
-  const id = $props.id();
+  let { form, id } = $props();
 </script>
 
 <Card.Root class="mx-auto w-full max-w-sm">
@@ -22,6 +22,13 @@
   <Card.Content>
     <form method="POST" action="?/login">
       <FieldGroup>
+        {#if form?.error}
+          <div
+            class="bg-destructive/15 text-destructive text-sm font-medium p-3 rounded-md border border-destructive/20"
+          >
+            {form.error}
+          </div>
+        {/if}
         <Field>
           <FieldLabel for="email-{id}">Email</FieldLabel>
           <Input
